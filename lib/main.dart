@@ -53,7 +53,7 @@ class HomePageState extends State<HomePage> {
               child: CircularProgressIndicator(),
             )
           : GridView.count(
-              crossAxisCount: 3,
+              crossAxisCount: 2,
               children: pokeHub.pokemon
                   .map((Pokemon pokemon) => Padding(
                         padding: const EdgeInsets.all(4.0),
@@ -74,8 +74,8 @@ class HomePageState extends State<HomePage> {
                                 Hero(
                                   tag: pokemon.img,
                                   child: Container(
-                                    height: 80,
-                                    width: 80,
+                                    height: 100,
+                                    width: 100,
                                     decoration: BoxDecoration(
                                       image: DecorationImage(
                                         image: NetworkImage(pokemon.img),
@@ -85,7 +85,10 @@ class HomePageState extends State<HomePage> {
                                 ),
                                 Text(
                                   pokemon.name.toString(),
-                                  style: TextStyle(fontSize: 16.0),
+                                  style: TextStyle(
+                                    fontSize: 20.0,
+                                    fontWeight: FontWeight.bold,
+                                  ),
                                 )
                               ],
                             ),
@@ -96,8 +99,10 @@ class HomePageState extends State<HomePage> {
             ),
       floatingActionButton: FloatingActionButton(
         backgroundColor: Theme.of(context).primaryColor,
-        onPressed: () {},
-        child: Icon(Icons.add),
+        onPressed: () {
+          setState(() {});
+        },
+        child: Icon(Icons.refresh),
       ),
     );
   }
